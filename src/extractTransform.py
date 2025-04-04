@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import sqlite3
 
 def etlBcB(date:str) -> pd.DataFrame:
     """
@@ -23,3 +24,11 @@ def etlBcB(date:str) -> pd.DataFrame:
 
 df = etlBcB("20191")
 print(df)
+
+def salvarSQLite(df: pd.DataFrame, nome_banco: str, nome_tabela: str):
+    conn = sqlite3.connect(nome_banco)
+
+    df.to_sql(nome_tabela, conn ,if_exists='replace', index=False)
+
+    conn.close()
+    return
