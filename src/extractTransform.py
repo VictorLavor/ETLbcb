@@ -32,3 +32,10 @@ def salvarSQLite(df: pd.DataFrame, nome_banco: str, nome_tabela: str):
 
     conn.close()
     return
+
+## 📌 Função principal criada
+
+A função `salvarCSV()` foi criada para automatizar o processo de salvamento dos dados extraídos da API para arquivos `.csv`:
+
+
+
