@@ -22,9 +22,6 @@ def etlBcB(date:str) -> pd.DataFrame:
     df['datatrimestre'] = pd.to_datetime(df["datatrimestre"])
     return df
 
-df = etlBcB("20191")
-print(df)
-
 def salvarSQLite(df: pd.DataFrame, nome_banco: str, nome_tabela: str):
     conn = sqlite3.connect(nome_banco)
 
@@ -33,9 +30,16 @@ def salvarSQLite(df: pd.DataFrame, nome_banco: str, nome_tabela: str):
     conn.close()
     return
 
-## 📌 Função principal criada
+df = etlBcB("20191")
+print(df)
 
-A função `salvarCSV()` foi criada para automatizar o processo de salvamento dos dados extraídos da API para arquivos `.csv`:
+salvarSQLite(df, "src/datasets/etlbcb.db", "meios_pagamentos_tri")
+
+
+
+
+
+
 
 
 
