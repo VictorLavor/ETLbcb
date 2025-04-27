@@ -1,12 +1,15 @@
-import requests
 import pandas as pd
+from src.extractTransform import requestsApiBcb
+from src.load import salvarCSV, salvarSQLite, salvarMySQL
 
+dadosBcb = requestsApiBcb("20191")
+#alvarCsv(dadosBcb, "src/datasets/meiosPagamentosTri.csv", ";", ".")
 
-"""
-def requestApiBcb(data):
-   
-    Funcão para extrair os dados dos meios de pagamentos trimestrais do Banco Central.
+salvarSqlite(dadosBcb, "src/datasets/etlbcb.db", "meios_pagamentos_tri")
 
+<<<<<<< HEAD
+#alvarMySQL(dadosBcb, "root", "root", "localhost", "etlbcb", "meiospagamentostri")
+=======
     parâmentros:
     data - string - aaaat (Exemplo: 20191)
 
@@ -43,6 +46,7 @@ def obter_dados(data: str) -> pd.DataFrame:
         print("Erro ao obter os dados:", resposta.status_code)
         return pd.DataFrame()  # Retorna vazio em caso de erro
 
-# ⬇️ Executa a função fora da definição
+
 if __name__ == "__main__":
     obter_dados("20231")
+>>>>>>> main
