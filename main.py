@@ -43,6 +43,6 @@ def obter_dados(data: str) -> pd.DataFrame:
         print("Erro ao obter os dados:", resposta.status_code)
         return pd.DataFrame()  # Retorna vazio em caso de erro
 
-# ⬇️ Executa a função fora da definição
+
 if __name__ == "__main__":
     obter_dados("20231")
